@@ -3,7 +3,7 @@
 -----------------
 # Project overview
 ----------------- 
-The implementation is a time series motifs discovery & summarization framework. We applied it on real nueroimaging dataset "fBIRN". The dataset consists of resting fMRI data for patient with schizophrenia (SZ) and healthy control (HC). In our project, we use dynamic functional network conenctivity (dFNC) time course for discovering the motifs.        
+Statelets is a novel time series motifs discovery & summarization framework. We present a probabilistic pattern mining framework for state shape representation of a dynamical system. We applied the model on nueroimaging dataset called "fBIRN" that consists of resting fMRI data from approximately 151 patient with schizophrenia (SZ) and 163 healthy control (HC) subjects. The approach runs group ICA to genertae the independent components of interest followed by sliding window correlation technique to etimate the dynamic functional networks connectivity (dFNC) of the subjects. In our experiments, we use dFNC time courses for motifs discovery and summarization.        
 
 # Major steps.
 
@@ -32,10 +32,9 @@ Install MATLAB version 2019a or later
 # Running the experiments 
 ------------------------ 
 
-1(a). Select a group SZ/HC. For a given pair 'pr' of that group, run the steps and "step1_getlocalmotifs\getmotifsPairWise.m" 
-discovers the most recurring patterns in each time series and store corresponding information 
+1(a). Adjust the directories and dependencies describes within a module. Select a group SZ/HC. For a given pair 'pr' of that group, run the steps and "step1_getlocalmotifs\getmotifsPairWise.m" discovers the most recurring patterns in each time series and store corresponding information 
 
-1(b). Peform EMD-> tSNE -> KDE -> peak finding on the bag of local motifs extracted from all the signal 
+1(b). Run four steps methodology to create pairwise instances of shapes. Peform EMD-> tSNE -> KDE -> peak finding on the bag of local motifs extracted from all the signal 
 that represents pair 'pr' in the group. So, the function generates pairwise a subset of high-density motifs for each pair
 
 
@@ -46,7 +45,7 @@ that represents pair 'pr' in the group. So, the function generates pairwise a su
 -----------
 # Data usage
 -----------
-The fBIRN dataset was collected 10 years ago, and there's no data-sharing agreement was created on that time. According to the IRB data privacy agreement,
+The fBIRN dataset was collected 10 years ago, and no data-sharing agreement was initiated at that time. According to the IRB data privacy agreement,
 we are not allowed to share any subject-specific data. However, the resting-state fMRI data is available on request from fBIRN project site, 
 and preprocessing pipelines is public too, as I referred to in the manuscript. So, please reach me out through mrahaman8@gatech.edu if there is anything required and missing
 
